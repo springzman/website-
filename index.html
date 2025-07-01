@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ThatOne</title>
+  <link rel="icon" type="image/png" href="pfp.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    :root {
+      --bg: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      --text: #ffffff;
+      --btn: #8f00ff;
+      --btn-hover: #bf00ff;
+    }
+
+    body.light {
+      --bg: linear-gradient(135deg, #ffffff, #eaeaea);
+      --text: #111;
+      --btn: #7b00cc;
+      --btn-hover: #6600aa;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin: 0.5rem;
+      text-shadow: 0 0 8px var(--btn);
+    }
+
+    p {
+      font-size: 1.1rem;
+      opacity: 0.85;
+    }
+
+    .pfp {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid var(--btn);
+      box-shadow: 0 0 15px var(--btn);
+    }
+
+    .btn {
+      display: block;
+      margin: 10px;
+      padding: 15px 30px;
+      background: var(--btn);
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px var(--btn);
+    }
+
+    .btn:hover {
+      background: var(--btn-hover);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px var(--btn-hover);
+    }
+
+    .toggle-mode {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: transparent;
+      border: 2px solid var(--btn);
+      color: var(--text);
+      padding: 5px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .credit {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      opacity: 0.5;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-mode" onclick="toggleTheme()">🌓 Mode</button>
+
+  <img src="pfp.png" alt="PFP" class="pfp" />
+  <h1>ThatOne</h1>
+  <p>All my links — in one place 👇</p>
+
+  <a class="btn" href="https://www.youtube.com/@ThatOneAkaThat1" target="_blank">📺 YouTube</a>
+  <a class="btn" href="https://guns.lol/apshado2" target="_blank">🔫 Guns.lol</a>
+  <a class="btn" href="https://discord.gg/F2zmB7q4rB" target="_blank">💬 Discord</a>
+
+  <div class="credit">© 2025 ThatOne</div>
+
+  <!-- 🎵 Background music: autoplay after first click -->
+  <audio id="bgm" src="back-to-friends.mp3" loop></audio>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+    }
+
+    // Play music on first interaction
+    window.addEventListener("click", () => {
+      const audio = document.getElementById("bgm");
+      if (audio.paused) {
+        audio.play().catch(err => console.log("Autoplay blocked:", err));
+      }
+    }, { once: true });
+  </script>
+</body>
+</html>
